@@ -56,7 +56,7 @@ function Navbar() {
             {
               isMenuOpen &&   <ul className="fixed top-[80px] left-0 w-full h-auto bg-white pb-8 border-b shadow-sm-50">
               {navList.map((list, index) => (
-                <li key={index} className='mt-4 px-4  text-left'>
+                <li key={index} className='mt-4 px-4  text-left' >
                   <NavLink
                   onClick={() => setIsMenuOpen(false)}
                     to={`${list.path}`}

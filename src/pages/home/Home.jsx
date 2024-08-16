@@ -1,4 +1,5 @@
 import React from 'react'
+import Blog from '../blogs/Blog'
 import Hero from './Hero'
 
 function Home() {
@@ -8,7 +9,7 @@ function Home() {
 
     <hr />
       <div>
-        Blogs
+        <Blog/>
       </div>
     </div>
   )
