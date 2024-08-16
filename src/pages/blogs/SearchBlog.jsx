@@ -13,8 +13,8 @@ function SearchBlog({search,handleSearchChange,handleSearch}) {
       value={search} 
       onChange={handleSearchChange}
       onKeyPress={handelKeyPress  }
-       className="py-2 px-4 mr-5 w-full bg-slate-500     focus:outline-none focus:border" />
-       <button className="bg-blue-500 px-4 py-2 text-white">search</button>
+       className="py-2 px-4 mr-5 w-full bg-gray-100     focus:outline-none focus:border" />
+       <button className="bg-blue-500 px-4 py-2 text-white" onClick={handleSearch}>search</button>
       
     </div>
   );
