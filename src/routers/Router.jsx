@@ -1,10 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/home/Home";
 import About from "../pages/miniPages/About";
 import PrivacyPolicy from "../pages/miniPages/PrivacyPolicy";
 import ContactUs from '../pages/miniPages/ContactUs';
 import SingleBlog from "../pages/blogs/singleBlog/SingleBlog";
+import Login from "../pages/users/Login";
+import Register from "../pages/users/Register";
 
 
 const router = createBrowserRouter([
@@ -31,7 +33,15 @@ const router = createBrowserRouter([
         {
           path: "blogs/:id",
           element : <SingleBlog/>
-        }
+        },
+        {
+          path: "/login",
+          element : <Login/>
+        },
+        {
+          path: "/register",
+          element : <Register/>
+        },
       ]
     },
   ]);

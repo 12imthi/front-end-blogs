@@ -1,15 +1,49 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+import { usePostCommentMutation } from "../../../redux/commentsFeatures/commentApi";
+import { toast } from "react-toastify"; // Import toast
+import "react-toastify/dist/ReactToastify.css"; // Import toast styles
+import { useFetchBlogByIdQuery } from "../../../redux/blogsFeatures/blogsApi";
 
 function PostAComments() {
   const { id } = useParams();
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  // console.log( 'comments' ,user);
+
+  const [postComment] = usePostCommentMutation();
+const{refetch} = useFetchBlogByIdQuery(id,{skip: !id})
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle comment submission logic here
-    console.log('Comment submitted:', comment);
-    setComment(''); // Clear the comment field after submission
+
+    if (!user) {
+      toast.error("You must be logged in to comment.");
+      navigate("/login");
+      return;
+    }
+
+    const newComment = {
+      comment: comment,
+      user: user?._id,
+      postId: id,
+    };
+    console.log("Comment submitted:", newComment);
+
+    try {
+      const response = await postComment(newComment).unwrap();
+      console.log("new comments :", response);
+
+      toast.success("Comment submitted successfully!");
+      setComment(""); 
+      refetch()
+    } catch (error) {
+      toast.error("Failed to submit comment."); 
+      console.error("Error submitting comment:", error);
+    }
   };
 
   return (

@@ -1,21 +1,30 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "./components/Navbar"
-
+import { Outlet, useLocation } from "react-router-dom"; // Import useLocation
+import Navbar from "./components/Navbar";
+import { ToastContainer } from "react-toastify"; // Import ToastContainer
+import 'react-toastify/dist/ReactToastify.css';
+import Footer from "./components/Footer";
 
 function App() {
-  
+    const location = useLocation(); // Hook to get the current location
 
-  return (
-   <>
-    <div className="bg-bgPrimary min-h-screen flex flex-col">
-      <Navbar/>
-      <div className="flex-grow">
-        <Outlet/>
-      </div>
-      <footer className="mt-auto">Footer</footer>
-    </div>
-   </>
-  )
+    // Determine if the current path is the login page
+    const isAuthPage = location.pathname === '/login'; // Add more paths if needed
+
+    return (
+        <>
+            <div className="bg-bgPrimary min-h-screen flex flex-col">
+                {!isAuthPage && <Navbar />} {/* Render Navbar only if not on auth pages */}
+
+                <ToastContainer /> {/* Add ToastContainer here */}
+
+                <div className="flex-grow">
+                    <Outlet />
+                </div>
+
+                {!isAuthPage && <Footer className="mt-auto" />} {/* Render Footer only if not on auth pages */}
+            </div>
+        </>
+    );
 }
 
-export default App
+export default App;

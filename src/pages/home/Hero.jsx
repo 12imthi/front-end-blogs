@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 
 function Hero() {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center md:gap-14 gap-8 ">
+    <div className="flex flex-col md:flex-row justify-between items-center md:gap-14 gap-8 mb-4 ">
       <div className="md:w-1/2 w-full text-center">
         <h1 className="md:text-5xl text-3xl font-bold md:leading-tight">
           It happened on Medium: July 2024 roundup
