@@ -5,6 +5,7 @@ import router from "./routers/Router.jsx";
 import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from './redux/store';
+import 'react-toastify/dist/ReactToastify.css';
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
