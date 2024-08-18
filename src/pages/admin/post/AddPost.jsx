@@ -7,6 +7,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate} from 'react-router-dom';
+
+
 
 // Validation Schema using Yup
 const validationSchema = Yup.object().shape({
@@ -21,6 +24,8 @@ function AddPost() {
   const editorRef = useRef(null);
   const [postBlog, { isLoading }] = usePostBlogMutation();
   const { user } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const editor = new EditorJS({
@@ -65,6 +70,7 @@ function AddPost() {
 
       await postBlog(newPost).unwrap();
       toast.success('Blog post created successfully!');
+      navigate('/')
     } catch (error) {
       console.error('Error saving the post:', error);
       toast.error('Failed to create the blog post.');
