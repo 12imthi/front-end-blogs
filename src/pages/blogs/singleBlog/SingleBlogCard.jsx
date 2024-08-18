@@ -25,7 +25,7 @@ function SingleBlogCard({ blog }) {
         )}
             
       </div>
-      <p>{formatDate(createdAt)} by <span className='text-blue-400 font-bold'>Admin {author}</span></p>
+      <p>{formatDate(createdAt)} by <span className='text-blue-400 font-bold'>Admin</span></p>
 
       {coverImg && (
         <img

@@ -4,34 +4,30 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { useLogoutUserMutation } from "../../redux/auth/authApi";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/auth/authSlice";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function AdminNavigation() {
-
-  const [logoutUser]  = useLogoutUserMutation()
-
+  const [logoutUser] = useLogoutUserMutation();
   const dispatch = useDispatch();
 
-  const handelLogout = async () => {
-
+  const handleLogout = async () => {
     try {
-
-await logoutUser().unwrap()
-dispatch(logout())
-
-      
+      await logoutUser().unwrap();
+      dispatch(logout());
+      toast.success("Logout successful!");
     } catch (error) {
-      
+      console.error('Logout failed:', error);
+      toast.error("Logout failed. Please try again.");
     }
-
-
-  }
+  };
 
   return (
     <div className="bg-white space-y-5 p-8 h-[calc(100vh-98px)] flex flex-col justify-between mt-5 mb-5 rounded-lg shadow-lg">
       <div className="mb-6">
         <div className="flex items-center space-x-2">
-          <FaRegUserCircle className="text-3xl text-blue-700 mb-2" />
-          <h1 className="text-2xl font-bold">Admin</h1>
+          <FaRegUserCircle className="text-3xl text-blue-700" />
+          <h1 className="text-gray-600 font-bold">Admin</h1>
         </div>
         <hr className="border-gray-200 mt-3" />
         <ul className="space-y-5 pt-5">
@@ -89,13 +85,16 @@ dispatch(logout())
 
       <div className="mb-3">
         <hr />
-        <button 
-        onClick={handelLogout}
-        
-        className="text-white bg-red-600 font-medium px-5 py-2 rounded hover:bg-red-700 transition duration-300 w-full">
+        <button
+          onClick={handleLogout}
+          className="text-white bg-red-600 font-medium px-5 py-2 rounded hover:bg-red-700 transition duration-300 w-full"
+        >
           Logout
         </button>
       </div>
+
+      {/* Toast Container */}
+      <ToastContainer />
     </div>
   );
 }
