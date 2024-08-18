@@ -40,7 +40,7 @@ function Blog() {
   }, [blogs, search, isLoading, noResultsToastShown]);
 
   return (
-    <div className="mt-16 container p-5">
+    <div className=" container p-5">
       <h1 className="text-2xl font-bold mb-6 text-center">Blog Posts</h1>
 
       <SearchBlog

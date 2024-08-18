@@ -50,7 +50,7 @@ function DashBoard() {
       {blogsLoading && <p>Loading....</p>}
       {blogsError && <p>Error fetching blogs: {blogsError.message}</p>}
 
-      <div className="space-y-6">
+      <div className="space-y-6 mt-16">
         <div className="bg-bgPrimary p-5">
           <h1>Hi, {user?.username}</h1>
           <p>Welcome to the admin dashboard</p>
@@ -91,7 +91,7 @@ function DashBoard() {
         {/* {chart} */}
 
         <div className="pt-5 pb-5">
-          <BlogsChart blogs={blogs} />
+          <BlogsChart blogs={blogs}  />
         </div>
       </div>
     </>

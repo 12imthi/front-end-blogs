@@ -7,8 +7,8 @@ import Footer from "./components/Footer";
 function App() {
     const location = useLocation(); // Hook to get the current location
 
-    // Determine if the current path is the login page
-    const isAuthPage = location.pathname === '/login'; // Add more paths if needed
+  
+    const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
 
     return (
         <>

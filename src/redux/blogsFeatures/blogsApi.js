@@ -1,4 +1,3 @@
-// Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
@@ -28,12 +27,13 @@ export const blogApi = createApi({
         body: newBlog,
         credentials: "include",
       }),
+      invalidatesTags: ['Blogs']
     }),
-    updatedBlog: builder.mutation({
+    updateBlog: builder.mutation({
       query: ({ id, ...rest }) => ({
         url: `/blogs/update-post/${id}`,
         method: "PATCH",
-        body: newBlog,
+        body: rest, // Use `rest` instead of `newBlog`
         credentials: "include",
       }),
       invalidatesTags: (result, error, { id }) => [{ type: "Blogs", id }],
@@ -54,6 +54,6 @@ export const {
   useFetchBlogByIdQuery,
   useFetchRelatedBlogsQuery,
   usePostBlogMutation,
-  useUpdatedBlogMutation,
+  useUpdateBlogMutation,
   useDeleteBlogMutation,
 } = blogApi;
