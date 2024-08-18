@@ -12,6 +12,7 @@ import DashBoard from "../pages/admin/DashBorad/DashBoard";
 import AddPost from "../pages/admin/post/AddPost";
 import ManagePost from "../pages/admin/post/ManagePost";
 import ManageUser from "../pages/admin/user/ManageUser";
+import PrivateRouter from "./PrivateRouter";
 
 
 const router = createBrowserRouter([
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
         },
         {
           path: "dashBoard",
-          element : <AdminLayout/> , // it will be procted by the admin: Use private
+          element : <PrivateRouter><AdminLayout/></PrivateRouter> , // it will be procted by the admin: Use private
           children: [
             {
               path: '',

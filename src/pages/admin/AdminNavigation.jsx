@@ -1,8 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
+import { useLogoutUserMutation } from "../../redux/auth/authApi";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/auth/authSlice";
 
 function AdminNavigation() {
+
+  const [logoutUser]  = useLogoutUserMutation()
+
+  const dispatch = useDispatch();
+
+  const handelLogout = async () => {
+
+    try {
+
+await logoutUser().unwrap()
+dispatch(logout())
+
+      
+    } catch (error) {
+      
+    }
+
+
+  }
+
   return (
     <div className="bg-white space-y-5 p-8 h-[calc(100vh-98px)] flex flex-col justify-between mt-5 mb-5 rounded-lg shadow-lg">
       <div className="mb-6">
@@ -66,7 +89,10 @@ function AdminNavigation() {
 
       <div className="mb-3">
         <hr />
-        <button className="text-white bg-red-600 font-medium px-5 py-2 rounded hover:bg-red-700 transition duration-300 w-full">
+        <button 
+        onClick={handelLogout}
+        
+        className="text-white bg-red-600 font-medium px-5 py-2 rounded hover:bg-red-700 transition duration-300 w-full">
           Logout
         </button>
       </div>

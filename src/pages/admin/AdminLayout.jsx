@@ -20,8 +20,8 @@ function AdminLayout() {
       <header className='lg:w-1/5 sm:2/5 w-full'>
         <AdminNavigation/>
       </header>
-      <main className='p-8 bg-white w-full'>
-        <p>for admin navigate</p>
+      <main className='p-8 bg-white w-full mt-5 mb-5 rounded-md shadow-lg'>
+    
       <Outlet />
       </main>
     </div>

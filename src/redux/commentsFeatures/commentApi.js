@@ -18,7 +18,7 @@ const commentApi = createApi({
         }),
         getComments: builder.query({
             query: (postId) => ({
-                url: `/total-comment/${postId}`,
+                url: `/total-comment`,
                 method: "GET",
             }),
             providesTags: (result, error, postId) => [{ type: 'Comments', id: postId }],
