@@ -5,6 +5,8 @@ export const blogApi = createApi({
   reducerPath: "blogsApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://bloging-backend-d8fr.onrender.com/api",
+
+    // baseUrl: "http://localhost:5000/api/",
     credentials: "include",
   }),
   tagTypes: ["Blogs"],

@@ -4,6 +4,8 @@ export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://bloging-backend-d8fr.onrender.com/api/auth",
+
+    // baseUrl: "http://localhost:5000/api/auth",
     credentials: "include",
   }),
   endpoints: (builder) => ({
