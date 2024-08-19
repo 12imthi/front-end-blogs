@@ -37,7 +37,7 @@ function Navbar() {
     <header className="bg-white py-3 border">
       <nav className="container mx-auto flex justify-between px-5">
         <a href="/">
-          <img src="/src/assets/medium-logo.png" alt="logo" className="h-12" />
+          <img src="/medium-logo.png" alt="logo" className="h-12" />
         </a>
 
         <ul className="sm:flex hidden items-center gap-8">
