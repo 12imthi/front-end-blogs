@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaRegUserCircle, FaUser } from "react-icons/fa"; // Import FaUser
 import { useLogoutUserMutation } from "../redux/auth/authApi";
 import { logout } from "../redux/auth/authSlice";
 
@@ -28,7 +28,9 @@ function Navbar() {
     try {
       await logoutUser().unwrap();
       dispatch(logout());
-    } catch (error) {}
+    } catch (error) {
+      console.error("Failed to logout:", error); // Add error logging
+    }
   };
 
   return (
@@ -52,19 +54,12 @@ function Navbar() {
             </li>
           ))}
 
-{/* {users} */}
-
-
-          {user && user.role === "user" ? ( // Check if user exists and if role is "user"
+          {user && user.role === "user" ? (
             <li className="flex items-center p-1 bg-green-50 rounded-md shadow-sm">
-              {" "}
-              {/* Reduced padding and adjusted styles */}
-              <FaRegUserCircle className="text-2xl text-green-700" />{" "}
-              {/* Reduced icon size and adjusted color */}
+              <FaRegUserCircle className="text-2xl text-green-700" />
               <span className="ml-2 text-md font-medium text-gray-700">
                 {user.username}
-              </span>{" "}
-              {/* Adjusted font size and style */}
+              </span>
               <button
                 onClick={handleLogout}
                 className="ml-2 px-2 py-1 bg-red-600 text-white rounded-md text-sm transition duration-150 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400"
@@ -73,39 +68,24 @@ function Navbar() {
               </button>
             </li>
           ) : (
-            <li className="">
-              <NavLink
-                to="/login"
-              >
-                {" "}
-                {/* Adjust font for login link */}
-                Login
-              </NavLink>
+            <li>
+              <NavLink to="/login">Login</NavLink>
             </li>
           )}
 
-          {/* {admin} */}
-
-          {user &&
-            user.role === "admin" && ( // Check if user exists and if role is "admin"
-              <li className="flex items-center p-1 bg-blue-50 rounded-md shadow-sm">
-                {" "}
-                {/* Adjusted padding, background, and shadow */}
-                <FaRegUserCircle className="text-2xl text-blue-700" />{" "}
-                {/* Reduced icon size */}
-                <span className="ml-2 text-md font-medium text-gray-700">
-                  {user.username}
-                </span>{" "}
-                {/* Adjusted font size */}
-                <Link to="/dashboard" className="ml-3">
-                  {" "}
-                  {/* Added margin for spacing */}
-                  <button className="px-3 py-1 bg-blue-600 text-white rounded-md transition duration-150 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                    Dashboard
-                  </button>
-                </Link>
-              </li>
-            )}
+          {user && user.role === "admin" && (
+            <li className="flex items-center p-1 bg-blue-50 rounded-md shadow-sm">
+              <FaRegUserCircle className="text-2xl text-blue-700" />
+              <span className="ml-2 text-md font-medium text-gray-700">
+                {user.username}
+              </span>
+              <Link to="/dashboard" className="ml-3">
+                <button className="px-3 py-1 bg-blue-600 text-white rounded-md transition duration-150 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                  Dashboard
+                </button>
+              </Link>
+            </li>
+          )}
         </ul>
 
         <div className="sm:hidden">
@@ -139,9 +119,7 @@ function Navbar() {
               {user && user.role === "admin" ? (
                 <li className="flex items-center">
                   <div className="flex items-center p-2 bg-blue-100 rounded-full">
-                    {" "}
-                    {/* Container for the icon */}
-                    <FaUser className="text-xl text-blue-700" />
+                    <FaUser className="text-xl text-blue-700" /> {/* Use FaUser */}
                   </div>
                   <span className="ml-2">{user.username}</span>
                 </li>

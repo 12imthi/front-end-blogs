@@ -2,8 +2,13 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination,Autoplay,Navigation } from "swiper/modules";
 
-import Img1 from "../../assets/hero.webp"
-import Img2 from "../../assets/changeLife.webp"
+// import Img1 from "../../assets/hero.webp"
+
+
+// import Img2 from "../../assets/changeLife.webp"
+
+import Img1 from "/hero.webp"
+import Img2 from "/changeLife.webp"
 
 // Import Swiper styles
 import "swiper/css";

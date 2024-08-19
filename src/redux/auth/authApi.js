@@ -44,7 +44,7 @@ export const authApi = createApi({
     }),
     updateUserRole: builder.mutation({
       query: ({ userId, role }) => ({
-        url: `/users/${userId}/role`,
+        url: `/users/${userId}`,
         method: "PUT",
         body: { role },
       }),
