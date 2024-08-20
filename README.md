@@ -1,8 +1,19 @@
-# React + Vite
+# Capstone Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This is a capstone project developed using React, Tailwind CSS, and React Router. The goal of this project is to [insert a brief description of your project's purpose or functionality].
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Responsive Design**: The application is styled with Tailwind CSS to ensure it is responsive and visually appealing across different devices.
+- **Routing**: Seamless navigation between different views is managed with React Router.
+- **[Other Features]**: [List any additional features or functionalities that your project includes.]
+
+## Installation
+
+To get started with this project, follow these steps:
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/your-repository-name.git
