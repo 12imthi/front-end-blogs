@@ -1,4 +1,4 @@
-# Capstone Project
+# Blogs Project
 
 ## Overview
 
