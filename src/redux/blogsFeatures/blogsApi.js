@@ -1,12 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
+
+// baseUrl: "http://localhost:5000/api/",
 export const blogApi = createApi({
   reducerPath: "blogsApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://bloging-backend-d8fr.onrender.com/api",
 
-    // baseUrl: "http://localhost:5000/api/",
+    
     credentials: "include",
   }),
   tagTypes: ["Blogs"],
@@ -27,7 +29,7 @@ export const blogApi = createApi({
         url: `/blogs/create-post`,
         method: "POST",
         body: newBlog,
-        credentials: "include",
+        // credentials: "include",
       }),
       invalidatesTags: ['Blogs']
     }),
@@ -36,7 +38,7 @@ export const blogApi = createApi({
         url: `/blogs/update-post/${id}`,
         method: "PATCH",
         body: rest, // Use `rest` instead of `newBlog`
-        credentials: "include",
+        // credentials: "include",
       }),
       invalidatesTags: (result, error, { id }) => [{ type: "Blogs", id }],
     }),
@@ -44,7 +46,7 @@ export const blogApi = createApi({
       query: (id) => ({
         url: `/blogs/delete-post/${id}`,
         method: "DELETE",
-        credentials: "include",
+        // credentials: "include",
       }),
       invalidatesTags: (result, error, { id }) => [{ type: "Blogs", id }],
     }),
