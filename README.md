@@ -24,5 +24,5 @@ This is a capstone project developed using React, Tailwind CSS, and React Router
 To get started with this project, follow these steps:
 
 1. **Clone the repository**:
-   ```  [   git clone https://github.com/your-username/your-repository-name.git](https://github.com/12imthi/front-end-blogs.git)
+ https://github.com/12imthi/front-end-blogs.git
 
