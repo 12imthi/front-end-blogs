@@ -53,7 +53,7 @@ function Navbar() {
             </li>
           ))}
 
-          {user && user.role === "user" ? (
+          {/* {user && user.role === "user" ? (
             <li className="flex items-center p-1 bg-green-50 rounded-md shadow-sm">
               <FaRegUserCircle className="text-2xl text-green-700" />
               <span className="ml-2 text-md font-medium text-gray-700">
@@ -70,9 +70,9 @@ function Navbar() {
             <li>
               <NavLink to="/login">Login</NavLink>
             </li>
-          )}
+          )} */}
 
-          {user && user.role === "admin" && (
+          {user  && (
             <li className="flex items-center p-1 bg-blue-50 rounded-md shadow-sm">
               <FaRegUserCircle className="text-2xl text-blue-700" />
               <span className="ml-2 text-md font-medium text-gray-700">

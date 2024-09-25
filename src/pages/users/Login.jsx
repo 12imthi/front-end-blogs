@@ -25,7 +25,7 @@ const Login = () => {
 
         try {
             const response = await loginUser({ email, password }).unwrap();
-            const { user, token } = response; // Assuming response contains these
+            const { user, token } = response; // Ensure that the response contains these properties
             
             dispatch(loginSuccess({ user, token }));
             toast.success("Login successful!"); // Show toast for successful login

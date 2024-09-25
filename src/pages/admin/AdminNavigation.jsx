@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useLogoutUserMutation } from "../../redux/auth/authApi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/authSlice";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function AdminNavigation() {
   const [logoutUser] = useLogoutUserMutation();
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
 
   const handleLogout = async () => {
     try {
@@ -27,11 +28,14 @@ function AdminNavigation() {
       <div className="mb-6">
         <div className="flex items-center space-x-2">
           <FaRegUserCircle className="text-3xl text-blue-700" />
-          <h1 className="text-gray-600 font-bold">Admin</h1>
+          <h1 className="text-gray-600 font-bold">
+            {user?.role === 'admin' ? 'Admin' : 'User'}
+          </h1>
         </div>
         <hr className="border-gray-200 mt-3" />
         <ul className="space-y-5 pt-5">
-          <li>
+         { user?.role === 'admin' &&
+          ( <li>
             <NavLink
               to="/dashboard"
               end
@@ -43,7 +47,8 @@ function AdminNavigation() {
             >
               Dashboard
             </NavLink>
-          </li>
+          </li>)
+         }
           <li>
             <NavLink
               to="/dashboard/add-new-post"
@@ -68,18 +73,21 @@ function AdminNavigation() {
               Manage Items
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/dashboard/users"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-blue-600 font-bold whitespace-nowrap"
-                  : "text-black hover:text-blue-600 whitespace-nowrap"
-              }
-            >
-              Users
-            </NavLink>
-          </li>
+          {/* Show "Users" link only for admins */}
+          {user?.role === 'admin' && (
+            <li>
+              <NavLink
+                to="/dashboard/users"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-600 font-bold whitespace-nowrap"
+                    : "text-black hover:text-blue-600 whitespace-nowrap"
+                }
+              >
+                Users
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
 

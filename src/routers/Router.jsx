@@ -14,6 +14,7 @@ import ManagePost from "../pages/admin/post/ManagePost";
 import ManageUser from "../pages/admin/user/ManageUser";
 import PrivateRouter from "./PrivateRouter";
 import UpdatePost from "../pages/admin/post/UpdatePost";
+import UserDashboard from "../pages/admin/DashBorad/UserDashBorad";
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
             {
               path: 'update-items/:id',
               element: <UpdatePost/>
+            },
+            {
+              path: 'userDashBorad',
+              element: <UserDashboard/>
             },
           ]
         }

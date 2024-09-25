@@ -8,12 +8,12 @@ function AdminLayout() {
 
   const {user} = useSelector(state => state.auth)
 
-  if(!user || user.role !== 'admin') {
+  // if(!user || user.role !== 'admin') {
 
-    return <Navigate to='/login' />
+  //   return <Navigate to='/login' />
 
    
-  }
+  // }
 
   return (
     <div className='container mx-auto flex flex-col md:flex-row gap-4 items-start justify-start'>

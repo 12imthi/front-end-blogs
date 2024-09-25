@@ -25,6 +25,8 @@ function AddPost() {
   const [postBlog, { isLoading }] = usePostBlogMutation();
   const { user } = useSelector((state) => state.auth);
 
+  console.log('User : ',user);
+
   const navigate = useNavigate()
 
   useEffect(() => {
