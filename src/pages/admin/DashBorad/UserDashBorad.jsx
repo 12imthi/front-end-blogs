@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFetchUserBlogsQuery, useDeleteBlogMutation } from '../../../redux/blogsFeatures/blogsApi';
+
 import BlogCard from './BlogCard';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -8,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const UserDashboard = () => {
   const { data, error, isLoading, refetch } = useFetchUserBlogsQuery();
   const [deleteBlog] = useDeleteBlogMutation();
+   
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this blog?");
@@ -35,7 +37,7 @@ const UserDashboard = () => {
           <div key={blog._id} className="mb-4 p-4 border rounded-lg shadow-md">
             <BlogCard blog={blog} />
             <div className="flex justify-end mt-2 space-x-4">
-              <Link to={`/edit-blog/${blog._id}`}>
+              <Link to={`/dashboard/update-items/${blog._id}`}>
                 <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                   Edit
                 </button>
