@@ -54,7 +54,7 @@ function ManagePost() {
           <UserDashboard />
         </div>
       ) : (
-        <div> no post</div>
+        <div> </div>
       )}
       {isLoading && <p className="text-center py-4">Loading...</p>}
       {error && (
@@ -147,7 +147,7 @@ function ManagePost() {
           </div>
         </section>
       ) : (
-        <div> no post</div>
+        <div> </div>
       )}
     </>
   );
