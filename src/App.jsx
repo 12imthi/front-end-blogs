@@ -17,9 +17,11 @@ function App() {
 
                 <ToastContainer /> {/* Add ToastContainer here */}
 
-                <div className="flex-grow">
-                    <Outlet />
-                </div>
+             { 
+                   <div className="flex-grow">
+                   <Outlet />
+               </div>
+             }
 
                 {!isAuthPage && <Footer className="mt-auto" />} {/* Render Footer only if not on auth pages */}
             </div>

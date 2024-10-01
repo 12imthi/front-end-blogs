@@ -33,7 +33,7 @@ function Blog() {
   }, [error]);
 
   useEffect(() => {
-    if (search && blogs.length === 0 && !isLoading && !noResultsToastShown) {
+    if (search  && !isLoading && !noResultsToastShown) {
       toast.info("No blogs found for: " + search);
       setNoResultsToastShown(true);
     }

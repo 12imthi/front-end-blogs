@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints  
+ // baseUrl: "http://localhost:5000/api",
+ //     baseUrl: "https://bloging-backend-d8fr.onrender.com/api",
 export const blogApi = createApi({
   reducerPath: "blogsApi",
   baseQuery: fetchBaseQuery({
